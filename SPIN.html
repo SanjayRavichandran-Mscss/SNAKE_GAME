@@ -1,0 +1,719 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" type="text/css" href="spincss/spin.css"/> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>Spin Wheel</title>
+
+
+
+<!-- CSS -->
+<!-- _________________________________________________________________________________________________________________________________________________________ -->
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  padding:0;
+  background-color: #34495e;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  height:100vh;
+  overflow:hidden;
+}
+
+.container{
+  width:500px;
+  height:500px;
+  background-color: #ccc;
+  border-radius:50%;
+  border:15px solid #dde;
+  position: relative;
+  overflow: hidden;
+  transition: 5s;
+}
+
+.container div{
+  height:50%;
+  width:200px;
+  position: absolute;
+  clip-path: polygon(100% 0 , 50% 100% , 0 0 );
+  transform:translateX(-50%);
+  transform-origin:bottom;
+  text-align:center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size:20px;
+  font-weight:bold;
+  font-family:sans-serif;
+  color:#fff;
+  left:135px;
+}
+
+.container .one{
+  background-color: #3f51b5;
+  left:50%;
+}
+.container .two{
+  background-color: #ff9800;
+  transform: rotate(45deg);
+}
+.container .three{
+  background-color: #e91e63;
+  transform:rotate(90deg);
+}
+.container .four{
+  background-color: #4caf50;
+  transform: rotate(135deg);
+}
+.container .five{
+  background-color: #009688;
+  transform: rotate(180deg);
+}
+.container .six{
+  background-color: #795548;
+  transform: rotate(225deg);
+}
+.container .seven{
+  background-color: #9c27b0;
+  transform: rotate(270deg);
+}
+.container .eight{
+  background-color: #f44336;
+  transform: rotate(315deg);
+}
+
+.arrow{
+  position: absolute;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  color:#fff;
+}
+
+.arrow::before{
+  content:"\1F817";
+  font-size:100px;
+  color:black;
+  margin-right:22cm;
+}
+
+#spin{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:10;
+  background-color: white;
+  text-transform: uppercase;
+  border:8px solid blue;
+  font-weight:bold;
+  font-size:20px;
+  color:black;
+  width: 80px;
+  height:80px;
+  font-family: sans-serif;
+  border-radius:50%;
+  cursor: pointer;
+  outline:none;
+  letter-spacing: 1px;
+  margin-left:-11cm;
+}
+
+
+
+
+
+.select{
+  /**************************************/
+  /* background-color:yellow; */
+  width:800px;
+  height:20cm;
+  margin-left:1cm;
+/***********************************************/
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+}
+
+
+
+
+
+
+/**********************************   C  ********************/
+ .c {
+  
+  background-color:#3f51b5;
+  border:2px solid aliceblue;
+
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 5s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   CPP  ********************/
+
+
+ .cpp {
+
+  background-color:#ff9800;
+  border:2px solid aliceblue;
+  
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 10s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   JAVA  ********************/
+
+
+ .j {
+
+  background-color:#e91e63;
+  border:2px solid aliceblue;
+  
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 15s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   PYTHON  ********************/
+
+
+ .p {
+
+  background-color:#4caf50;
+  border:2px solid aliceblue;
+  
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 20s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   COBOL  ********************/
+
+
+
+ .r {
+
+  background-color:#009688;
+  border:2px solid aliceblue;
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 25s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+
+/**********************************   js  ********************/
+
+
+.js{
+
+  background-color:#795548;
+  border:2px solid aliceblue;
+  
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 30s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   SQL  ********************/
+
+
+ .sql {
+  background-color:#9c27b0;
+  border:2px solid aliceblue;
+
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 35s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+
+/**********************************   PHP  ********************/
+
+
+ .php {
+
+  background-color:#f44336;
+  border:2px solid aliceblue;
+  
+  margin:0 15px;
+  width:140px;
+  height:50px;
+  border-radius:20px;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:.7px;
+  background-image:linear-gradient(top,gray 1px,black 1px,black 100%);
+  box-shadow : 0 60px 12px -18px rgba(0,0,0,0.1),0 60px 20px -12px rgba(0,0,0,0.1);
+animation:anime 40s infinite ease-in-out alternate;
+-webkit-animation:anime 1s infinite ease-in-out alternate;
+
+}
+
+.c{
+animation-delay:1s;
+}
+
+.cpp{
+  animation-delay:2s;
+  }
+
+  .j{
+    animation-delay:3s;
+    }
+
+    .p{
+      animation-delay:4s;
+      }
+
+      .r{
+        animation-delay:5s;
+        }
+
+        .js{
+          animation-delay:6s;
+          }
+
+          .sql{
+            animation-delay:7s;
+            }
+
+            .php{
+              animation-delay:8s;
+              }
+
+@keyframes anime {
+100%{
+transform : translateY(20px);
+-webkit-transform : translateY(20px);
+-moz-transform : translateY(20px);
+-ms-transform : translateY(20px);
+-o-transform : translateY(20px);
+box-shadow : 0 40px 10px -18px  black, grey;
+
+}
+
+}
+
+
+/* Hover Effect to stop the Animation Effect */
+.c:hover{
+
+  animation-play-state: paused;
+  height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+
+}
+
+.cpp:hover{
+
+  animation-play-state: paused;
+  height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+
+}
+
+.j:hover{
+
+  animation-play-state: paused;
+height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+
+}
+
+.p:hover{
+
+  animation-play-state: paused;
+height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+}
+
+.r:hover{
+
+  animation-play-state: paused;
+height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+}
+
+.js:hover{
+
+  animation-play-state: paused;
+height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+}
+
+.sql:hover{
+
+  animation-play-state: paused;
+  height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+  border-color:black;
+}
+
+.php:hover{
+
+  animation-play-state: paused;
+height:50px;
+  /* height:4cm; */
+  transition-property:height,padding-bottom;
+  transition-duration:2s,2s;
+  /* padding-bottom: 2cm;
+  padding-top:5px; */
+
+  border-color:black;
+}
+
+ 
+/*
+.bubbles{
+
+  position:relative;
+  display:flex;
+}
+
+.bubbles span{
+
+position:relative;
+width:30px;
+height:30px;
+background-color:goldenrod;
+margin:0 4px;
+border-radius:50%;
+box-shadow:0 0 0 10px darkblue,
+0 0 50px skyblue,
+0 0 100px skyblue;
+animation:animate 15s linear infinite;
+animation-duration:calc(120s / var(--1));
+}
+
+.bubbles span:nth-child(even){
+
+  background:skyblue;
+  box-shadow:0 0 0 10px darkblue,
+  0 0 50px skyblue,
+  0 0 100px skyblue;
+}
+
+@keyframes animate
+{
+
+  0%{
+    transform:translateY(100vh) scale(0);
+  }
+
+  100%{
+    transform: translateY(-10vh) scale(1);
+  }
+
+} */
+
+
+
+
+
+
+
+</style>
+
+
+
+
+<!-- CSS -->
+<!-- ********************************************************************************************************************************************************* -->
+
+</head>
+<body>
+  <button id="spin">Spin</button>
+  <audio id="music" src="sound/wheel.wav"></audio>
+  <span class="arrow"></span>
+<div class="container">
+  <div class="one">C</div>
+  <div class="two">C++</div>
+  <div class="three">JAVA</div>
+  <div class="four">PYTHON</div>
+  <div class="five">R</div>
+  <div class="six">JS</div>
+  <div class="seven">SQL</div>
+  <div class="eight">PHP</div>
+</div>
+
+<div class="select">
+
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/Cindex.html"><button  class="c" type="button" >C</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/CPPindex.html"><button class="cpp" type="button" >C++</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/JAVAindex.html"><button class="j" type="button" >JAVA</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/PYindex.html"><button class="p" type="button" >PYTHON</button></a>
+
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/Rindex.html"><button class="r" type="button" >R</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/JSindex.html"><button class="js" type="button" >JAVASCRIPT</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/SQLindex.html"><button class="sql" type="button" >SQL</button></a>
+<a href="file:///C:/Users/R.Sanjay/OneDrive/Desktop/EXPO/snake/PHPindex.html"><button class="php" type="button" >PHP</button></a>
+
+
+<!-- <div class="bubbles">
+
+<span style="--i:11;"></span>
+<span style="--i:12;"></span>
+<span style="--i:24;"></span>
+<span style="--i:10;"></span>
+<span style="--i:10;"></span>
+<span style="--i:10;"></span>
+<span style="--i:14;"></span>
+<span style="--i:23;"></span>
+<span style="--i:18;"></span>
+<span style="--i:16;"></span>
+<span style="--i:19;"></span>
+<span style="--i:20;"></span>
+<span style="--i:22;"></span>
+<span style="--i:25;"></span>
+<span style="--i:18;"></span>
+<span style="--i:21;"></span>
+
+
+
+</div> -->
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<!-- ***************************************************************************************************************************************************** -->
+<script>
+
+let container = document.querySelector(".container");
+let btn = document.getElementById("spin");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const spinButton = document.getElementById("spin");
+  //const music = document.getElementById("music");               //spinning sound
+  let spinning = false;
+
+  // Function to play the music                                   // Function to play Music
+  //function playMusic() {
+  //  music.play();
+  //}
+
+  function stopMusic() {
+    music.pause();
+    music.currentTime = 0;
+  }
+
+// setTimeout(function(){
+
+//   // alert("great");
+//   swal("Here's the title!", "...and here's the text!");
+
+// })
+
+// setTimeout(function(){
+// box.style.setProperty("transition","initial");
+// box.style.transform = "rotate(90deg)";
+
+// },6000);
+
+  // Attach click event to the button
+  spinButton.addEventListener("click", function () {
+   //playMusic();                                                    // Function for play music
+   
+
+    // Attach click event to the button
+    spinButton.addEventListener("click", function () {
+      if (!spinning) {
+       // playMusic();                                            //Function for play music
+        spinning = true;
+
+
+      }
+    }
+    )
+  
+      })
+    });
+  
+
+let number = Math.ceil(Math.random() * 1000);
+
+btn.onclick = function () {
+  container.style.transform = "rotate(" + number + "deg)";
+  number += Math.ceil(Math.random() * 1000);
+}
+
+
+
+
+
+
+
+/*
+swal("Here's the title!", "...and here's the text!");
+
+*/
+
+
+
+
+</script>
+
+
+<!-- **************************************************************************************************************************************************** -->
+<!-- JAVASCRIPT  -->
+
+<!-- <script src="spinjs/spin.js"></script> -->
+
+</body>
+</html>
